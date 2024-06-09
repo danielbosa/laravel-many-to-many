@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Type;
 
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreTypeRequest;
@@ -97,6 +96,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('message', $type->name . ' è stato eliminato');
     }
 }
