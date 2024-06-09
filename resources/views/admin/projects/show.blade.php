@@ -5,10 +5,17 @@
 <section>
     <div class="py-4">
         <h1>{{$project->title}}</h1>
-        @if($project->name)
-        <h2>{{$project->type->name}}</h2>
+        @if($project->type)
+            <h2>{{$project->type->name}}</h2>
         @else
-        <h2>No type</h2>
+            <h2>No type</h2>
+        @endif
+        @if($project->technologies)
+            <div>
+                @foreach ($project->technologies as $technology)
+                <span class="badge text-bg-danger">{{$technology->name}}</span>
+                @endforeach
+            </div>
         @endif
         <div class="py-4">
             @if($project->image)
