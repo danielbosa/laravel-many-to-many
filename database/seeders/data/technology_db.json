@@ -1,0 +1,34 @@
+[
+    {
+        "name": "HTML",
+        "icon": ""
+    },
+    {
+        "name": "CSS",
+        "icon": ""
+    },
+    {
+        "name": "JavaScript",
+        "icon": ""
+    },
+    {
+        "name": "SCSS",
+        "icon": ""
+    },
+    {
+        "name": "PHP",
+        "icon": ""
+    },
+    {
+        "name": "VUE",
+        "icon": ""
+    },
+    {
+        "name": "Bootstrap",
+        "icon": ""
+    },
+    {
+        "name": "Laravel",
+        "icon": ""
+    }
+]
