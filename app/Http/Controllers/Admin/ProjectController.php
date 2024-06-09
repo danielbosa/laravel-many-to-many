@@ -97,6 +97,11 @@ class ProjectController extends Controller
         $project->update($form_data);
         // $query = DB::getQueryLog();
         // dd($query);
+        if($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }else{
+            $project->technologies()->sync([]);
+        }
         return redirect()->route('admin.projects.show', $project->slug);
     }
 
