@@ -24,5 +24,11 @@
                 <span>Types</span>
             </a>
         </li>
+        <li class="{{Route::currentRouteName() == 'admin.technologies.index' ? 'active' : ''}}">
+            <a href="/admin/technologies" class="nav-link">
+                <i class="fa-solid fa-tags"></i>
+                <span>Technologies</span>
+            </a>
+        </li>
     </ul>
 </nav>
