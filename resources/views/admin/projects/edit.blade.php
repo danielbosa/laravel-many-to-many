@@ -33,6 +33,22 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Choose Technology</label>
+                @foreach ($technologies as $technology)
+                    <div>
+                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" class="form-check-input"
+                        @if($project->technologies)
+                        {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}
+                        @endif
+                        >
+                        <label for="" class="form-check-label">{{ $technology->name }}</label>
+                    </div>
+                @endforeach
+                @error('tags')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             
             {{-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
                 Preview block 
