@@ -30,4 +30,8 @@ class Type extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    public function technologies(){
+        return $this->belongsToMany('App\Models\Technology');
+    }
 }
