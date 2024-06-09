@@ -1,0 +1,124 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+
+#admin{
+    height: 100vh;
+    overflow: hidden;
+    background-color: $db-bg;
+    display: flex;
+    #sidebar{
+        width: 75px;
+        height: 100%;
+        position: fixed;
+        border-right: 1px solid black;
+        background-color: $db-details;
+        ul{
+            padding: 0 5px 0 5px;
+            margin-top: 20px;
+            li{
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+                color: $db-secondary;
+                &.active{
+                    color: rgb(243, 213, 115);
+                }
+                // @include media-breakpoint-up(md){
+                //     margin-right: 5px;
+                // }
+                i{
+                    width: 20px;
+                    font-size: 1.2rem;
+                    // @include media-breakpoint-up(md){
+                    //     margin-right: 5px;
+                    // }
+                }
+                span{
+                    display: none;
+                    width: 50px;
+                    // @include media-breakpoint-up(md){
+                    //     display: inline-block;
+                    // }
+                }
+            }
+        }
+    }
+    // @include media-breakpoint-down(md){
+    //     overflow: auto;
+    // }
+    @include media-breakpoint-up(md){
+        #sidebar{
+            width: 150px;
+                ul{
+                    padding: 0 5px 0 5px;
+                    li{
+                        margin: 0 0 20px 10px;
+                        justify-content: start;
+                        i{
+                            margin-right: 5px;
+                            }
+                        span{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }      
+        }
+    #wrapper{
+        flex-grow: 1;
+        height: 100vh;
+        overflow-y: hidden;
+        //margin left per non finire sotto la sidebar fixed
+        margin-left: 75px;
+        @include media-breakpoint-up(md){
+            margin-left: 150px;
+        }
+        main{
+            flex-grow: 1;
+            overflow-y: auto;
+            //margin-top per non finire sotto header fixed
+            margin-top: 50px;
+            height: calc(100vh - 50px);
+        }
+        &.container-fluid{
+            width: 100%;
+        }
+    }
+}
+
+header{
+    background-color: $db-bg;
+    height: 50px;
+    position: fixed;
+    width: calc(100% - 75px);
+    @include media-breakpoint-up(md){
+        width: calc(100% - 150px);
+    }
+    height: 50px;
+    .img-profile{
+        width: 20px
+    }
+}
+
+#index{
+    table {
+        width: 100%; // Ensure the table takes the full width of its container
+        table-layout: fixed; // Force columns to fit within the available space
+        word-wrap: break-word; // Break long words to fit within the cells
+    }
+
+    th, td {
+        overflow: hidden;
+        text-overflow: ellipsis; // Ellipsis for overflowed content
+    }
+}
