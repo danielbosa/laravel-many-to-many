@@ -29,6 +29,13 @@
                 @error('type_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+                {{-- ALTERNATIVE SELECT via SELECT2 --}}
+                    {{-- <select name="type_id" id="type_idtype_id" class="js-example-basic-multiple" multiple="multiple">
+                        @foreach ($types as $type)
+                        <option value="{{$type->id}}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{$type->name}}</option>
+                        @endforeach
+                        <option value="WY">Wyoming</option>
+                    </select> --}}
             </div>
             <div class="mb-3">
                 <label for="type_id" class="form-label">Choose Technology</label>
