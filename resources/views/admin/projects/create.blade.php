@@ -10,7 +10,9 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    value="{{ old('title') }}" minlength="3" maxlength="200" required>
+                    value="{{ old('title') }}" minlength="3" maxlength="200"
+                    {{-- required --}}
+                    >
                 @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -18,15 +20,25 @@
             </div>
             <div class="mb-3">
                 <label for="type_id" class="form-label">Select Type</label>
-                <select name="type_id" id="type_idtype_id" class="form-control @error('category_id') is-invalid @enderror">
-                    <option value="">Select Category</option>
+                <select name="type_id" id="type_idtype_id" class="form-control @error('type_id') is-invalid @enderror">
+                    <option value="">Select Type</option>
                     @foreach ($types as $type)
-                    <option value="{{$type->id}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{$type->name}}</option>
                     @endforeach
                 </select>
                 @error('type_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+            </div>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Choose Technology</label>
+                @foreach ($technologies as $technology)
+                    <div>
+                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                        class="form-check-input {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}">
+                        <label for="{{$technology->name}}" class="form-check-label">{{ $technology->name }}</label>
+                    </div>
+                @endforeach
             </div>
             <div class="media me-4">
                 @if($project->image)
