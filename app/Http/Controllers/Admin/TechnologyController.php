@@ -34,7 +34,10 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->validated();
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        $form_data = $request->all();
         if($request->hasFile('image')){
             $name = $request->image ->getClientOriginalName();
             $path = Storage::putFileAs('tech_images', $request->image, $name);
@@ -66,6 +69,9 @@ class TechnologyController extends Controller
      */
     public function update(Request $request, Technology $technology)
     {
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
         $form_data = $request->all();
         //$form_data['user_id'] = Auth::id();
         //se il titolo è diverso, allora aggiorno anche lo slug
