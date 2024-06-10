@@ -94,4 +94,7 @@
 
     </section>
 
+    {{-- Script for NicEdit, for TextArea (to be added) --}}
+    @include('partials.niceditor')
+
 @endsection

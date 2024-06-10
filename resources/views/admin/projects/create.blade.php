@@ -86,5 +86,13 @@
 
 
     </section>
+    {{-- Script for NicEdit, for TextArea (to be added) --}}
+    @include('partials.niceditor')
 
+    {{-- <script>
+        $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+    </script> --}}
+                            
 @endsection
