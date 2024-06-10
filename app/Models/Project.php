@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use App\Models\Type;
 use App\Models\Technology;
 
+use Carbon\Carbon;
+
 class Project extends Model
 {
 
@@ -35,6 +37,16 @@ class Project extends Model
     }
 
     public function technologies(){
-        return $this->belongsToMany(Technology::class)->withTimestamps();;
+        return $this->belongsToMany(Technology::class)->withTimestamps();
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y H:i');
+    }
+    
+    public function getUpdatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y H:i');
     }
 }
