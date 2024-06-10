@@ -38,10 +38,11 @@ class TechnologyController extends Controller
             'name' => 'required|max:255',
         ]);
         $form_data = $request->all();
-        if($request->hasFile('image')){
-            $name = $request->image ->getClientOriginalName();
-            $path = Storage::putFileAs('tech_images', $request->image, $name);
-            $form_data['image'] = $path;
+        //dd($request);
+        if($request->hasFile('icon')){
+            $name = $request->icon ->getClientOriginalName();
+            $path = Storage::putFileAs('tech_images', $request->icon, $name);
+            $form_data['icon'] = $path;
         };
         $form_data['slug'] = Technology::generateSlug($form_data['name']);
         $newTechnology = Technology::create($form_data);

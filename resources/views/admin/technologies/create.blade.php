@@ -17,7 +17,7 @@
                 {{-- <div id="titleHelp" class="form-text text-white">Inserire minimo 3 caratteri e massimo 200</div> --}}
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Icon</label>
+                <label for="icon" class="form-label">Icon</label>
                 <input type="file" accept="image/*"  class="form-control @error('icon') is-invalid @enderror" id="icon" name="icon" value="{{ old('icon') }}" maxlength="255">
                 @error('icon')
                     <div class="alert alert-danger">{{ $message }}</div>

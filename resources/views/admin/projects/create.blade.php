@@ -5,6 +5,9 @@
 @section('content')
     <section>
         <h2>Create a new project</h2>
+        <?php $old = session()->getOldInput();
+        var_dump($old); 
+        ?>
         <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -42,7 +45,11 @@
                 @foreach ($technologies as $technology)
                     <div>
                         <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
-                        class="form-check-input {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}">
+                        class="form-check-input" 
+                        @if(old('technologies') != null)
+                        {{ in_array($technology->id, old('technologies')) ? 'checked' : '' }}
+                        @endif
+                        >
                         <label for="{{$technology->name}}" class="form-check-label">{{ $technology->name }}</label>
                     </div>
                 @endforeach
